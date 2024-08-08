@@ -24,3 +24,32 @@ _기능.html '_' 기능을 하는 파일
 from django.conf.urls.static import static
 static('/media/', 'BASE_DIR/ media') 사용자가 업로드한 파일 제공
 static(경로요청, 사진의 실제위치)
+
+
+
+
+
+{% block body %}
+    <form action="" method="POST" enctype="multipart/form-data"> 
+    encoding 타입 정보 바꿈 파일을 따로 FILES로 전송 
+        {% csrf_token %}
+        {{form}}
+        <input type="submit">
+    </form>
+{% endblock %}
+요청을 2가지 넣어줘야함 POST,FILES
+def create(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('posts:index')
+
+    else:
+        form = PostForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'form.html', context)
