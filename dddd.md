@@ -16,3 +16,11 @@ media 파일 gitignore 장고에서 기록하지 말라고하는 파일에 들�
 상단 templates 안의 파일 기능단위로 나눠서 저장
 _기능.html '_' 기능을 하는 파일
 {% include '_nav.html' %}
+
+
+
+이미지에 접근
+장고 파일 관리하는 방법 
+from django.conf.urls.static import static
+static('/media/', 'BASE_DIR/ media') 사용자가 업로드한 파일 제공
+static(경로요청, 사진의 실제위치)
