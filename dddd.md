@@ -53,3 +53,12 @@ def create(request):
     }
 
     return render(request, 'form.html', context)
+
+
+사진크기 일괄처리
+Model
+    image = ResizedImageField(
+    size=[500, 500],
+    crop=['middle', 'center'],
+    upload_to='image/%Y/%m'
+)
