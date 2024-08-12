@@ -70,3 +70,14 @@ http 405 Method Not Allowed
 GET요청인지 POST요청인지 확인 
 request.method = 'POST' 와 같은 역할을 함
 GET요청이 들어왔을 때 어떤 문제인지 확인 할 수 없기에 에러코드 보여주는 것이 좋음
+
+새로운 컬럼 추가 했을 때
+migrations 에러 
+It is impossible to add a non-nullable field 'post' to comment without specifying a default. This is because the database needs something to populate existing rows.
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column) 새로운 컬럼 기본값
+ 2) Quit and manually define a default value in models.py. models.py 수정
+Select an option:1 (1번 선택)
+
+Type 'exit' to exit this prompt
+>>>1 (1을 넣음)
