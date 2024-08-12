@@ -108,3 +108,14 @@ posts.Post.user: (fields.E304) Reverse accessor 'User.post_set' for 'posts.Post.
 builtin filter tag
 html 코드에서 파이썬 함수 사용하는 방법
 {{value|파이썬 함수}}
+
+
+팔로워 팔로우
+좋아요와 다르게 to, from 관계
+모델링
+User 모델:
+followings = models.ManyToMany('self', related_name='followers', symmetrical=False)
+followings 내가 팔로우하는 사람
+followers 나를 팔로우하는 사람
+symetrical=False 대칭값을 주지않음(단방향 from-to)
+symmertrical 값을 주지 않으면 related_name 필요없고 양방향임
