@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Post
+from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
@@ -33,6 +33,16 @@ def create(request):
     }
 
     return render(request, 'form.html', context)
+@login_required
+def detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    form = CommentForm()
+    context = {
+        'post': post,
+        'form': form,
+    }
+    return render(request, 'detail.html', context)
+
 
 @require_POST
 @login_required
