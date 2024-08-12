@@ -87,6 +87,11 @@ Type 'exit' to exit this prompt
 좋아요 기능 추가
 
 M : N 
+
+ManyToManyField django의 편의기능 
+게시물을 좋아하는 모든 사람들의 목록을 리스트로 조회가능
+M : N 관계 설정 후 새로운 컬럼을 만들 때는 새로운 모델 생성해야함
+
 Post모델
 like_users = models.ManyToManyField(settings.AUTH_USER_MODEL)
 like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_posts')
@@ -98,3 +103,8 @@ posts.Post.user: (fields.E304) Reverse accessor 'User.post_set' for 'posts.Post.
         HINT: Add or change a related_name argument to the definition for 'posts.Post.user' or 'posts.Post.like_users'.
 
         Post모델과 User모델이 연결되어 User에 미리 만들어놓은 post_set이 있는데 또다른 post_set을 만들려고 시도 -> 충돌 -> related_name 수정
+
+
+builtin filter tag
+html 코드에서 파이썬 함수 사용하는 방법
+{{value|파이썬 함수}}
