@@ -62,3 +62,11 @@ Model
     crop=['middle', 'center'],
     upload_to='image/%Y/%m'
 )
+
+require_post()
+from django.views.decorators.http import require_POST
+@require_POST
+http 405 Method Not Allowed 
+GET요청인지 POST요청인지 확인 
+request.method = 'POST' 와 같은 역할을 함
+GET요청이 들어왔을 때 어떤 문제인지 확인 할 수 없기에 에러코드 보여주는 것이 좋음
