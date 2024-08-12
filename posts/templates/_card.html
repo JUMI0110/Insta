@@ -9,7 +9,7 @@
     <div class="card-body">
       
       <div>
-        <!-- a tag default 값 변경 -->
+        <!-- a tag default 값 변경 text-reset(방문O-보라색 방문X-파란색) text-decoration (밑줄) -->
         <a href="{% url 'posts:like' post_id=post.id %}" class="text-reset text-decoration-none">
           {% if user in post.like_users.all %}
             <i class="bi bi-heart-fill" style="color:red"></i>
