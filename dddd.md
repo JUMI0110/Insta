@@ -81,3 +81,20 @@ Select an option:1 (1번 선택)
 
 Type 'exit' to exit this prompt
 >>>1 (1을 넣음)
+
+
+
+좋아요 기능 추가
+
+M : N 
+Post모델
+like_users = models.ManyToManyField(settings.AUTH_USER_MODEL)
+like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_posts')
+
+ERRORS:
+posts.Post.like_users: (fields.E304) Reverse accessor 'User.post_set' for 'posts.Post.like_users' clashes with reverse accessor for 'posts.Post.user'.
+        HINT: Add or change a related_name argument to the definition for 'posts.Post.like_users' or 'posts.Post.user'.
+posts.Post.user: (fields.E304) Reverse accessor 'User.post_set' for 'posts.Post.user' clashes with reverse accessor for 'posts.Post.like_users'.
+        HINT: Add or change a related_name argument to the definition for 'posts.Post.user' or 'posts.Post.like_users'.
+
+        Post모델과 User모델이 연결되어 User에 미리 만들어놓은 post_set이 있는데 또다른 post_set을 만들려고 시도 -> 충돌 -> related_name 수정
