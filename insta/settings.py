@@ -24,8 +24,10 @@ SECRET_KEY = 'django-insecure-%j0e-xphg4t%-9-9-fnwbyp8q7auk!isasc-))jy=$hri@(y0(
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
+# 장고 서버를 들어올 때 허용하고 싶은 IP주소 / '*'->모든IP주소 허용
+ALLOWED_HOSTS = [
+    '*',
+]
 
 
 # Application definition
